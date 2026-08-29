@@ -23,7 +23,7 @@ export interface Prediction {
 export interface PipelineStep {
   label: string;
   status: "complete" | "active" | "pending" | "failed";
-  timestamp?: string;
+  timestamp?: string | undefined;
 }
 
 export interface SimilarIncident {
@@ -72,7 +72,7 @@ export interface Cluster {
   updatedAt: string;
   status: ClusterStatus;
   inClusterTable: boolean;
-  suggestedNames?: [string, string];
+  suggestedNames?: [string, string] | undefined;
   incidentIds: string[];
 }
 
@@ -96,10 +96,10 @@ export interface AuditEvent {
   entityId: string;
   entityType: "incident" | "cluster" | "sync";
   action: string;
-  previousValue?: string;
-  aiPrediction?: string;
-  finalValue?: string;
-  confidence?: number;
+  previousValue?: string | undefined;
+  aiPrediction?: string | undefined;
+  finalValue?: string | undefined;
+  confidence?: number | undefined;
   user: string;
 }
 
@@ -157,11 +157,11 @@ export interface ClassificationResult {
 
 export interface ClusteringResult {
   matched: boolean;
-  clusterId?: string;
-  clusterName?: string;
+  clusterId?: string | undefined;
+  clusterName?: string | undefined;
   similarity: number;
   relatedIncidentCount: number;
-  suggestedNames?: [string, string];
+  suggestedNames?: [string, string] | undefined;
   similarIncidents: SimilarIncident[];
 }
 
