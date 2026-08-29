@@ -128,16 +128,16 @@ export interface AppNotification {
 }
 
 export interface IncidentFilters {
-  search?: string;
-  service?: string;
-  category?: string;
-  subcategory?: string;
-  assignmentGroup?: string;
-  priority?: string;
-  state?: string;
-  membership?: string;
-  classificationStatus?: string;
-  minConfidence?: number;
+  search?: string | undefined;
+  service?: string | undefined;
+  category?: string | undefined;
+  subcategory?: string | undefined;
+  assignmentGroup?: string | undefined;
+  priority?: string | undefined;
+  state?: string | undefined;
+  membership?: string | undefined;
+  classificationStatus?: string | undefined;
+  minConfidence?: number | undefined;
 }
 
 export interface Paginated<T> {
