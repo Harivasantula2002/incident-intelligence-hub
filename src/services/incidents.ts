@@ -196,6 +196,7 @@ export function getDistributions(): Promise<DashboardDistributions> {
       });
 
       return {
+        trend,
         byService: count((i) => i.service).sort((a, b) => b.value - a.value),
         byState: count((i) => i.state),
         byPriority: count((i) => i.priority).sort((a, b) => a.label.localeCompare(b.label)),
