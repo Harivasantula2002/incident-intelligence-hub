@@ -57,7 +57,7 @@ export function GlobalSearch() {
         </kbd>
       </button>
 
-      <CommandDialog open={open} onOpenChange={setOpen} shouldFilter={false}>
+      <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput
           value={term}
           onValueChange={setTerm}
@@ -79,7 +79,7 @@ export function GlobalSearch() {
               {incidents.items.map((i) => (
                 <CommandItem
                   key={i.id}
-                  value={i.id}
+                  value={`${i.id} ${i.shortDescription}`}
                   onSelect={() => {
                     setOpen(false);
                     void navigate({ to: "/incidents/$id", params: { id: i.id } });
@@ -96,10 +96,10 @@ export function GlobalSearch() {
               {clusterResults.map((c) => (
                 <CommandItem
                   key={c.id}
-                  value={c.id}
+                  value={`${c.id} ${c.name}`}
                   onSelect={() => {
                     setOpen(false);
-                    void navigate({ to: "/cluster-management", search: { q: c.id } });
+                    void navigate({ to: "/cluster-management" });
                   }}
                 >
                   <span className="num mr-2 text-xs text-muted-foreground">{c.id}</span>
